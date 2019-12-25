@@ -33,6 +33,32 @@ ball.penup()
 ball.goto(0, 0)
 
 # Function
+def paddle_a_up():
+    y = paddle_a.ycor() #.ycor() returns the y cordinate of the function
+    y += 20
+    paddle_a.sety(y)
+
+def paddle_a_down():
+    y = paddle_a.ycor() #.ycor() returns the y cordinate of the function
+    y -= 20
+    paddle_a.sety(y)
+
+def paddle_b_up():
+    y = paddle_b.ycor() #.ycor() returns the y cordinate of the function
+    y += 20
+    paddle_b.sety(y)
+
+def paddle_b_down():
+    y = paddle_b.ycor()  # .ycor() returns the y cordinate of the function
+    y -= 20
+    paddle_b.sety(y)
+
+# Keyboard binding
+wn.listen() # listen for keyboard input from the user
+wn.onkeypress(paddle_a_up, "w") # when user presses w, call the function paddle_a_up
+wn.onkeypress(paddle_a_down, "s") # when user presses s, call the function paddle_a_down
+wn.onkeypress(paddle_b_up, "Up") # when user presses Up key, call the function paddle_b_up
+wn.onkeypress(paddle_b_down, "Down") # when user presses Down key, call the function paddle_b_down
 
 
 # Main Game Loop
