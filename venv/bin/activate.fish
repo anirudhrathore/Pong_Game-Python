@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/anirudhsinghrathore/Documents/Anirudh/Pong/venv"
+set -gx VIRTUAL_ENV "/Users/anirudhsinghrathore/Desktop/Desktop/Git/Pong_Game-Python/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
