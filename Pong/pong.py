@@ -31,6 +31,10 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
+ball.dx = 2 #everytime the ball moves it moves by 2 pixels
+ball.dy = -2
+
+# Pen
 
 # Function
 def paddle_a_up():
@@ -64,3 +68,33 @@ wn.onkeypress(paddle_b_down, "Down") # when user presses Down key, call the func
 # Main Game Loop
 while True:
     wn.update()
+
+    # Move the ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    # Border checking
+    if ball.ycor() > 290:
+        ball.sety(290) #set the coordiantes of the ball to 290
+        ball.dy *= -1 #reverses the direction of the ball
+
+    if ball.ycor() < -290:
+        ball.sety(-290) #set the coordiantes of the ball to 290
+        ball.dy *= -1 #reverses the direction of the ball
+
+    if ball.xcor() > 390:
+        ball.goto(0, 0)
+        ball.dx *= -1
+
+    if ball.xcor() < -390:
+        ball.goto(0, 0)
+        ball.dx *= -1
+
+    # Paddle and ball collision
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40):
+        ball.setx(340)
+        ball.dx *= -1
+
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
+        ball.setx(-340)
+        ball.dx *= -1
